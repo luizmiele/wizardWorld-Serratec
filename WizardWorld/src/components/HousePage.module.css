@@ -1,0 +1,22 @@
+.housePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .studentInfo {
+    margin-top: 20px;
+  }
+  
+  .studentInfo img {
+    width: 150px;
+    border-radius: 50%;
+  }
+  
+  .studentInfo p {
+    margin-top: 10px;
+  }
+  
