@@ -6,7 +6,7 @@ import Menu from '../Menu/index.jsx';
 import styles from './styles.module.css';
 import centerImage from '../../assets/images/livro.png';
 
-const HousePage = ({ videoSrc, studentImage, studentText }) => {
+const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
   return (
     <div className={styles.housePage}>
       <BackgroundVideo src={videoSrc} />
@@ -14,8 +14,15 @@ const HousePage = ({ videoSrc, studentImage, studentText }) => {
         <img src= {centerImage} alt="Livro" className={styles.centerImage} />
       </div>
       <div className={styles.studentInfo}>
-        <img src={studentImage} alt="Student" />
-        <p className={styles.studentText}>{studentText}</p>
+        <p className={styles.studentText}>
+          {studentText}
+        </p>
+        <div className={styles.studentImageContainer}>
+          <img className={styles.studentImage} src={studentImage} alt="Student" />
+        </div>
+      </div>
+      <div className={styles.crestContainer}>
+          <img className={styles.crest} src={crest} alt="Crest" />
       </div>
       <Menu />
     </div>
