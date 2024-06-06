@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import moldura from "../../assets/images/enzo-diretor-moldura.png";
-import sala from "../../assets/images/Sala.webp";
-import styles from "./styles.module.css"
 
 const Potion = () => {
   // const [NomePocao, setNomePocao] = useState("");
@@ -15,28 +11,8 @@ const Potion = () => {
   // };
 
   return (
-    <div className={styles.app}>
-      <img src={sala} alt="plano de fundo mostrando uma sala com pocoes" />
-      <header className={styles.header}>
-        <p>Olá estudante! Qual poção você gostaria de pesquisar?</p>
-      </header>
-      <main className={styles.main}>
-        <div className={styles.searchSection}>
-          <h2>Qual poção está procurando?</h2>
-          <form>
-            <input
-              type="text"
-              placeholder="Procure sua poção..."
-            />
-            <button type="submit">🔍</button>
-          </form>
-        </div>
-      </main>
-      <aside className={styles.aside}>
-        <img src={moldura} alt="Professor" />
-      </aside>
-    </div>
-  );
+      <div className={StyleSheet.principal}></div>
+  )
 };
 
 export default Potion;
