@@ -24,3 +24,22 @@ const App = () => {
 };
 
 export default App;
+
+import Login from './Components/LoginForm/Login'
+import Wizarding_World_Logo from './assets/Images/Wizarding_World_Logo.png'
+
+
+function App() {
+  return (
+      <div className='principal'>
+        <div>
+          <a className='model' href="https://www.wizardingworld.com/" target="_blank">
+          <img className='img' src={Wizarding_World_Logo} alt="Wizarding World" />
+          </a>
+        <Login />
+        </div>
+      </div>
+  )
+}
+
+export default App;
