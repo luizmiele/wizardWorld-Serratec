@@ -1,31 +1,31 @@
   .pocoes {
     position: absolute;
-    top: 33%;
-    left: 39%;
+    top: 31%;
+    left: 37.8%;
     color: rgb(0, 0, 0);
     font-size: 20px;
   }
 
   .feiticos {
     position: absolute;
-    top: 56%;
-    left: 39%;
+    top: 53%;
+    left: 37.8%;
     color: rgb(0, 0, 0);
     font-size: 20px;
   }
 
   .quadribol {
     position: absolute;
-    top: 33%;
-    left: 55.5%;
+    top: 31%;
+    left: 57.5%;
     color: rgb(0, 0, 0);
     font-size: 20px;
   }
 
   .creditos {
     position: absolute;
-    top: 56%;
-    left: 55.5%;
+    top: 53%;
+    left: 57.5%;
     color: rgb(0, 0, 0);
     font-size: 20px;
   }
@@ -54,11 +54,9 @@
   }
 
   .menu li img {
-    width: 24px;
+    width: 68px;
     margin-right: 10px;
     vertical-align: middle;
-    border-radius: 60%;
-    clip-path: inset(8%);
   }
 
   .menu li img:hover {
