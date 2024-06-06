@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moldura from "../../assets/images/enzo-diretor-moldura.png";
-import sala from "../../assets/images/sala.webp";
+import sala from "../../assets/images/Sala.webp";
 import styles from "./styles.module.css"
 
 const Potion = () => {

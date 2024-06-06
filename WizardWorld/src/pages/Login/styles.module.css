@@ -1,14 +1,26 @@
 
-
+/* 
 body {
   margin: 0px;
-  display: flex;
   justify-content: center;
   align-items: center;
   min-width: 100vw;
+  height: 100vh;
   background: url(../../assets/images/hogwarts.avif) no-repeat;
   background-size: cover;
   background-position: center;
+} */
+.principal{
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  height: 100vh;
+  background: url(../../assets/images/hogwarts.avif) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
 }
 
 code {
@@ -16,23 +28,9 @@ code {
   'Courier New',
     monospace;
 }
-
-.principal{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .wwlogo{
-  width: 150px;
-  height: 110px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 50px;
-  margin-left: 170px;
 }
 
 .model{
@@ -69,7 +67,7 @@ code {
   background: transparent;
   border: 3px solid rgba(255, 255, 255, .2);
   outline: none;
-  border-radius: 40px;
+  border-radius: 16px;
   font-size: 16px;
   color: #fff;
   padding: 20px 45px 20px 20px;
@@ -81,10 +79,12 @@ code {
 
 .inputBox .icon{
 position: absolute;
-right: 20px;
+right: 2px;
 top: 50%;
 transform: translateY(-50%);
-font-size: 16px;
+}
+.checkbox{
+  margin-bottom: 10px;
 }
 
 .wrapper .remember-forgot {

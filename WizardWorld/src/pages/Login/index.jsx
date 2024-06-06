@@ -32,11 +32,12 @@ const Login = () => {
                         <FaLock className={styles.icon}/>
                     </div>
 
+                <div className={styles.checkbox}>
                     <div className={styles.rememberForgot}>
                         <label><input type="checkbox" />Lembrar-me</label>
                         <a href="#">Esqueceu a senha?</a>
                     </div>
-
+                </div>
                     <button type='submit' onClick={handleLogin}>Entrar em sessão</button>
 
                     <div className={styles.registerLink}>
