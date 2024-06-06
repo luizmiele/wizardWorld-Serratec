@@ -16,14 +16,13 @@
 
     height: 350px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    
   }
 
   .studentText {
     position: absolute;
     bottom: 420px;
     left: 77.3%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); 
     background-image: url('../../assets/images/pergaminho.png');
     background-size: 100% 100%;
     padding: 100px;

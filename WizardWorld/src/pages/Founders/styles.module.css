@@ -89,7 +89,7 @@ em {
 	font-style: italic;
 }
 
-.title--large {
+.titlelarge {
 	font-family: var(--font-title);
 	font-size: 32px;
 	font-style: italic;
@@ -113,7 +113,7 @@ main {
 	aside {
 		grid-column: 1 / -1;
 	}
-	.main-title {
+	.mainTitle {
 		@media (min-width: 700px) {
 			grid-column: 1 / -1;
 		}
@@ -129,7 +129,7 @@ main {
 			grid-column: 3 / span 2;
 		}
 	}
-	.main-text {
+	.mainText {
 		@media (min-width: 700px) {
 			grid-column: span 5;
 		}
