@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import BackgroundVideo from './BackgroundVideo';
-import Menu from './Menu';
-import styles from './HousePage.module.css';
-import centerImage from '../assets/images/livro.png';
+import BackgroundVideo from '../BackgroundVideo/index.jsx';
+import Menu from '../Menu/index.jsx';
+import styles from './styles.module.css';
+import centerImage from '../../assets/images/livro.png';
 
 const HousePage = ({ videoSrc, studentImage, studentText }) => {
   return (

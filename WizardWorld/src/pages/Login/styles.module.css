@@ -1,3 +1,22 @@
+
+
+body {
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  background: url(../../assets/images/hogwarts.avif) no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+code {
+  font-family: sorce-code-pro, Menlo, Monaco, Consolas,
+  'Courier New',
+    monospace;
+}
+
 .principal{
   width: 100vw;
   height: 100vh;
@@ -6,9 +25,14 @@
   align-items: center;
 }
 
-.img{
+.wwlogo{
   width: 150px;
   height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  margin-left: 170px;
 }
 
 .model{
@@ -32,14 +56,14 @@
   text-align: center;
 }
 
-.wrapper .input-box{
+.wrapper .inputBox{
   position: relative;
-  width: 100%;
-  height: 60px;
+  width: 370px;
+  height: 100%;
   margin: 40px 0;
 }
 
-.input-box input {
+.inputBox input {
   width: 100%;
   height: 100%;
   background: transparent;
@@ -51,11 +75,11 @@
   padding: 20px 45px 20px 20px;
 }
 
-.input-box input::placeholder {
+.inputBox input::placeholder {
   color: #fff;
 }
 
-.input-box .icon{
+.inputBox .icon{
 position: absolute;
 right: 20px;
 top: 50%;

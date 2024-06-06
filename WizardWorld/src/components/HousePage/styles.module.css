@@ -8,15 +8,15 @@
   }
 
   .studentInfo {
-    margin-top: 20px;
+    margin-top: 400px;
+    margin-right: 1600px;
   }
 
   .studentInfo img {
-    margin-top: 25%;
-    margin-left: 330%;
-    height: 250px;
+
+    height: 350px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    clip-path: inset(2%);
+    
   }
 
   .studentText {
@@ -24,16 +24,10 @@
     bottom: 420px;
     left: 77.3%;
     transform: translateX(-50%);
-    background-image: url('../assets/images/pergaminho.png');
+    background-image: url('../../assets/images/pergaminho.png');
     background-size: 100% 100%;
-    padding: 10px;
+    padding: 100px;
     border-radius: 5px;
-  }
-
-  .menu{
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .centerImageContainer {

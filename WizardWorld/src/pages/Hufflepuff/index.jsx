@@ -1,7 +1,7 @@
 import React from 'react';
-import HousePage from '../components/HousePage';
-import hufflepuffVideo from '../assets/videos/Lufalufa2.mp4';
-import hufflepuffStudent from '../assets/images/boeck-lufalufa-moldura.png';
+import HousePage from '../../components/HousePage/index.jsx';
+import hufflepuffVideo from '../../assets/videos/lufalufa.mp4';
+import hufflepuffStudent from '../../assets/images/boeck-lufalufa-moldura.png';
 
 const Hufflepuff = () => {
   return (

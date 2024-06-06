@@ -1,7 +1,7 @@
 import React from 'react';
-import HousePage from '../components/HousePage';
-import slytherinVideo from '../assets/videos/Sonserina2.mp4';
-import slytherinStudent from '../assets/images/miele-sonserina-moldura.png';
+import HousePage from '../../components/HousePage/index.jsx';
+import slytherinVideo from '../../assets/videos/sonserina.mp4';
+import slytherinStudent from '../../assets/images/miele-sonserina-moldura.png';
 
 const Slytherin = () => {
   return (
