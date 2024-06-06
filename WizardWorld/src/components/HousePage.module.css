@@ -6,17 +6,44 @@
     text-align: center;
     padding: 20px;
   }
-  
+
   .studentInfo {
     margin-top: 20px;
   }
-  
+
   .studentInfo img {
-    width: 150px;
-    border-radius: 50%;
+    margin-top: 25%;
+    margin-left: 330%;
+    height: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    clip-path: inset(2%);
   }
-  
-  .studentInfo p {
-    margin-top: 10px;
+
+  .studentText {
+    position: absolute;
+    bottom: 420px;
+    left: 77.3%;
+    transform: translateX(-50%);
+    background-image: url('../assets/images/pergaminho.png');
+    background-size: 100% 100%;
+    padding: 10px;
+    border-radius: 5px;
   }
-  
+
+  .menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .centerImageContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .centerImage {
+    max-width: 100%;
+    height: auto;
+  }

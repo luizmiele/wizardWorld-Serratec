@@ -1,23 +1,66 @@
-.menu {
+  .pocoes {
+    position: absolute;
+    top: 33%;
+    left: 39%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .feiticos {
+    position: absolute;
+    top: 56%;
+    left: 39%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .quadribol {
+    position: absolute;
+    top: 33%;
+    left: 55.5%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .creditos {
+    position: absolute;
+    top: 56%;
+    left: 55.5%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+  }
+
+  .menu {
     margin-top: 20px;
   }
-  
+
   .menu ul {
     list-style-type: none;
     padding: 0;
   }
-  
+
   .menu ul li {
     display: inline;
     margin: 0 10px;
   }
-  
+
   .menu ul li a {
     color: white;
     text-decoration: none;
   }
-  
+
   .menu ul li a:hover {
     text-decoration: underline;
   }
-  
+
+  .menu li img {
+    width: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 60%;
+    clip-path: inset(8%);
+  }
+
+  .menu li img:hover {
+    transform: scale(1.2);
+  }
