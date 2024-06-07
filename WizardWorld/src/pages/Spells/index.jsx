@@ -1,40 +1,57 @@
-import React, { useState } from "react";
-import moldura from "../../assets/images/enzo-diretor-moldura.png";
-import sala from "../../assets/images/Sala.webp";
-import styles from "./styles.module.css"
+import React, { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import { getSpells } from "../../services/Api.js";
 
 const Spells = () => {
-  // const [NomePocao, setNomePocao] = useState("");
-  // const [receita, setReceita] = useState("");
+  const [spells, setSpells] = useState([]);
+  const [filtro, setFiltro] = useState("");
+  const [spellsFiltradas, setSpellsFiltradas] = useState([]);
+  const [invisivel, setInvisivel] = useState([true]);
+  
 
-  // const pesquisar = (e) => {
-  //   // Função para lidar com a busca da poção
-  //   e.preventDefault();
-  //   // Aqui você pode adicionar a lógica para buscar a receita da poção
-  //   setReceita(`Receita da nome da receita`); // Apenas um exemplo
-  // };
+  async function getApiData() {
+    const results = await getSpells();
+    setSpells(results.data);
+    setSpellsFiltradas(results.data);
+  }
+
+  function handleFiltro(e) {
+    setFiltro(e.target.value);
+  }
+
+  function pesquisa() {
+    //e.preventDefault();
+    const filtradas = spells.filter(spell => spell.name.toLowerCase().includes(filtro.toLowerCase()));
+    setSpellsFiltradas(filtradas);
+  }
+
+  useEffect(() => {
+    getApiData();
+  }, []);
+
+  useEffect(() => {
+    if(filtro === ""){
+      setInvisivel(true);
+    } else {
+      setInvisivel(false);
+      pesquisa();
+    }
+  }, [filtro])
 
   return (
-    <div className={styles.app}>
-      <img src={sala} alt="plano de fundo mostrando uma sala com feitiços" />
-      <header className={styles.header}>
-        <p>Olá estudante! Qual feitiço você gostaria de pesquisar?</p>
-      </header>
-      <main className={styles.main}>
-        <div className={styles.searchSection}>
-          <h2>Qual feitiço está procurando?</h2>
-          <form>
-            <input
-              type="text"
-              placeholder="Procure sua poção..."
-            />
-            <button type="submit">🔍</button>
-          </form>
-        </div>
-      </main>
-      <aside className={styles.aside}>
-        <img src={moldura} alt="Professor" />
-      </aside>
+    <div className={styles.principal}>
+      <h2>Qual feitiço está procurando?</h2>
+      <form>
+        <input type="text" onChange={handleFiltro}  laceholder="Procure sua poção..." />
+        <button type="submit">🔍</button>
+      </form>
+      {invisivel ? (<p>NADA</p>) : (
+        spellsFiltradas.map(spell => (
+          <div className={styles.spells} key={spell.id}>
+            <p>{spell.name}</p>
+          </div>
+        ))
+      )}
     </div>
   );
 };

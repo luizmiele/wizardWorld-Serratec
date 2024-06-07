@@ -6,7 +6,7 @@ import Slytherin from "../../pages/Slytherin/index.jsx";
 import Ravenclaw from "../../pages/Ravenclaw/index.jsx";
 import Hufflepuff from "../../pages/Hufflepuff/index.jsx";
 import Potion from "../../pages/Potion/index.jsx";
-// import Spell from "../../pages/Spell/index.jsx"; 
+import Spell from "../../pages/Spells/index.jsx"; 
 // import Quidditch from "../../pages/Quidditch/index.jsx";
 import Founders from "../../pages/Founders/index.jsx";  
 
@@ -35,10 +35,10 @@ export const router = createBrowserRouter([
         path:"/potion",
         element:<Potion/>,
     },
-    // {
-    //     path:"/spell",
-    //     element:<Spell/>,
-    // },
+    {
+        path:"/spell",
+        element:<Spell/>,
+    },
     // {
     //     path:"/quidditch",
     //     element:<Quidditch/>,

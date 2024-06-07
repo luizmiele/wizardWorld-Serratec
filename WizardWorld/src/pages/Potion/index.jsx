@@ -1,17 +1,18 @@
 
 const Potion = () => {
-  // const [NomePocao, setNomePocao] = useState("");
-  // const [receita, setReceita] = useState("");
-
-  // const pesquisar = (e) => {
-  //   // Função para lidar com a busca da poção
-  //   e.preventDefault();
-  //   // Aqui você pode adicionar a lógica para buscar a receita da poção
-  //   setReceita(`Receita da nome da receita`); // Apenas um exemplo
-  // };
+  
 
   return (
-      <div className={StyleSheet.principal}></div>
+      <div className={StyleSheet.principal}>
+         <h2>Qual feitiço está procurando?</h2>
+          <form>
+            <input
+              type="text"
+              placeholder="Procure sua poção..."
+            />
+            <button type="submit">🔍</button>
+          </form>
+      </div>
   )
 };
 
