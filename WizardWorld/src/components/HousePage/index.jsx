@@ -2,9 +2,9 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import BackgroundVideo from '../BackgroundVideo/index.jsx';
-import Menu from '../Menu/index.jsx';
 import styles from './styles.module.css';
 import centerImage from '../../assets/images/livro.png';
+import { Link } from 'react-router-dom';
 
 const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
   const [showChat, setShowChat] = useState(true);
@@ -14,30 +14,6 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
   };
 
   return (
- /*   <div className={styles.housePage}>
-      <BackgroundVideo src={videoSrc} />
-      <div className={styles.contentContainer}>
-        <div className={styles.centerImageContainer}>
-          <img className={styles.centerImage} src={centerImage} alt="Livro"/>
-        </div>
-        <div className={styles.menuContainer}>
-          <Menu />
-        </div>
-        <div className={styles.studentImageContainer}>
-          <img className={styles.studentImage} src={studentImage} alt="Student" onClick={handleStudentClick} />
-          {showChat && (
-            <div className={styles.chatBox}>
-              <div className={styles.studentText}>
-                {studentText}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      <div className={styles.crestContainer}>
-        <img className={styles.crest} src={crest} alt="Crest" />
-      </div>
-    </div>*/
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc}/>
       <div className={styles.crestContainer}>
@@ -50,29 +26,37 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
               <div className={styles.paginaEsquerda}>
                 <div className={styles.pocaoContainer}>
                   <div className={styles.pocaoIcone}>
-                   
+                    <div className={styles.pocaoIconeImagem}>
+                      <un><Link to="/potion"><p><img src="./src/assets/images/icones/pocao.png" alt="pocoes" /></p></Link></un>
+                    </div>
                   </div>
-                    <h1>Poções</h1>
+                  <h1 className={styles.linkTexto}>Poções</h1>
                 </div>
                 <div className={styles.feiticoContainer}>
                   <div className={styles.feiticoIcone}>
-                   
+                    <div className={styles.feiticoIconeImagem}>
+                      <un><Link to="/spell"><p><img src="./src/assets/images/icones/varinha.png" alt="feiticos" /></p></Link></un>
+                    </div>
                   </div>
-                  <h1>Feitiços</h1>
+                  <h1 className={styles.linkTexto}>Feitiços</h1>
                   </div>
               </div>
               <div className={styles.paginaDireita}>
                 <div className={styles.quadribolContainer}>
                   <div className={styles.quadribolIcone}>
-                    
+                    <div className={styles.quadribolIconeImagem}>
+                      <un><Link to="/quidditch"><p><img src="./src/assets/images/icones/vassoura.png" alt="quadribol" /></p></Link></un>
+                    </div>
                   </div>
-                  <h1>Quadribol</h1>
+                  <h1 className={styles.linkTexto}>Quadribol</h1>
                 </div>
                 <div className={styles.creditosContainer}>
                   <div className={styles.creditosIcone}>
-                    
+                    <div className={styles.creditosIconeImagem}>
+                      <un><Link to="/founders"><p><img src="./src/assets/images/icone-temporario.png" alt="fundadores" /></p></Link></un>
+                    </div>
                   </div>
-                  <h1>Créditos</h1>
+                  <h1 className={styles.linkTexto}>Créditos</h1>
                 </div>
               </div>
             </div>
@@ -83,7 +67,9 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
           {showChat && (
             <div className={styles.chatBox}>
               <div className={styles.studentText}>
-                {studentText}
+                <p>
+                  {studentText}
+                </p>
               </div>
             </div>
           )}

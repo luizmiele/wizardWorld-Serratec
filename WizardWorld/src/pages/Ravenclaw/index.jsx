@@ -5,11 +5,21 @@ import ravenclawStudent from '../../assets/images/victor-corvinal-moldura.png';
 import houseCrest from '../../assets/images/casas/ravenclaw.png';
 
 const Ravenclaw = () => {
+  const studentText = (
+    <>
+      <p>
+        Bem-vindo(a) querido aluno da Corvinal!
+      <br />
+      O que iremos aprender hoje?!
+      </p>
+    </>
+  );
+
   return (
     <HousePage
       videoSrc={ravenclawVideo}
       studentImage={ravenclawStudent}
-      studentText="Bem-vindo(a) querido aluno da Corvinal! O que iremos aprender hoje?!"
+      studentText={studentText}
       crest={houseCrest}
     />
   );

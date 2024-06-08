@@ -5,11 +5,21 @@ import slytherinStudent from '../../assets/images/miele-sonserina-moldura.png';
 import houseCrest from '../../assets/images/casas/slytherin.png';
 
 const Slytherin = () => {
+  const studentText = (
+    <>
+      <p>
+      Bem-vindo(a) querido aluno da Sonserina!
+      <br />
+      O que iremos aprender hoje?!
+      </p>
+    </>
+  );
+
   return (
     <HousePage
       videoSrc={slytherinVideo}
       studentImage={slytherinStudent}
-      studentText="Bem-vindo(a) querido aluno da Sonserina! O que iremos aprender hoje?!"
+      studentText={studentText}
       crest={houseCrest}
     />
   );
