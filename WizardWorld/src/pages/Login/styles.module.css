@@ -1,16 +1,3 @@
-
-/* 
-body {
-  margin: 0px;
-  justify-content: center;
-  align-items: center;
-  min-width: 100vw;
-  height: 100vh;
-  background: url(../../assets/images/hogwarts.avif) no-repeat;
-  background-size: cover;
-  background-position: center;
-} */
-
 @font-face {
   font-family: "FonteHarryPotter";
   src: url("../../assets/fonts/HARRP___.TTF") format("truetype");
@@ -44,38 +31,38 @@ body {
 }
 .wrapper{
   display: flex;
-  width: 26.25rem;
-  height: 34.375rem;
+  width: 24rem;
+  height: 27.6rem;
   background: transparent;
   border: .125rem solid rgba(255, 255, 255, .2);
   backdrop-filter: blur(30px);
   box-shadow: 0 0 10px rgba(0, 0, 0, .2);
   color: #fff;
   border-radius: 10px;
-  padding: 10px 40px;
+  padding: 10px 30px;
 }
 
 .wrapper h1 {
-  font-size: 2.25rem;
+  font-size: 2.10rem;
   text-align: center;
 }
 
 .wrapper .inputBox{
   position: relative;
-  width: 23.125rem;
-  margin: 1.25rem 0;
+  width: 22.80rem;
+  margin: 1.10rem 0;
 }
 
 .inputBox input {
-  width: 350.64px;
+  width: 380px;
   height: 100%;
   background: transparent;
-  border: .1875rem solid rgba(255, 255, 255, .2);
+  border: .1837rem solid rgba(255, 255, 255, .2);
   outline: none;
   border-radius: 1rem;
   font-size: 1rem;
   color: #fff;
-  padding: 1.25rem 2.8125rem 1.25rem 1.25rem;
+  padding: 1.25rem 2.80rem 1.25rem 1.25rem;
 }
 
 .inputBox input::placeholder {
@@ -84,11 +71,12 @@ body {
 
 .inputBox .icon{
 position: absolute;
-right: .125rem;
+right: .128rem;
 top: 50%;
 transform: translateY(-50%);
-margin-right: 1.25rem;
+margin-right: 1.15rem;
 }
+
 .checkbox{
   display: flex;
   flex-direction: column;
@@ -112,7 +100,7 @@ margin-right: 1.25rem;
   color:#fff;
   text-decoration: none;
   padding-top: 1.25rem;
-  padding-left: 180px;
+  padding-left: 220px;
   margin-bottom: -5px;
   font-size: 16px;
 }
@@ -143,7 +131,6 @@ margin-right: 1.25rem;
 }
 
 .registerLink p a{
- 
   color: #fff;
   text-decoration: none;
   font-weight: 600;
