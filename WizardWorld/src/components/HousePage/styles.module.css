@@ -307,6 +307,11 @@ transform: scale(1.2);
   font-family: "FonteHarryPotter";
   font-size: 40px;
   color: white;
+  text-shadow:
+  -1px -1px 0 #000,
+   2.5px -1px 0 #000,
+  -1px  2.5px 0 #000,
+   2.5px  2.5px 0 #000;
 }
 
 .studentImage:hover {
