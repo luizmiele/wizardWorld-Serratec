@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
@@ -9,7 +10,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [checaLogin, setChecaLogin] = useState(0);
-  const [house, setHouse] = useState("");
 
   const users = [
     { email: "alunoG", password: "123", house: "gryffindor" },
@@ -27,7 +27,7 @@ const Login = () => {
         alert("login invalido!");
       }
     }
-  }, [checaLogin]);
+  });
 
   function handleEmail(e) {
     setEmail(e.target.value);
@@ -38,12 +38,12 @@ const Login = () => {
   }
 
   const handleLogin = () => {
-      setChecaLogin(checaLogin + 1);
+    setChecaLogin(checaLogin + 1);
   };
 
   const handleHouse = (house) => {
     navigate(`/${house}`);
-  }
+  };
 
   return (
     <div className={styles.principal}>
@@ -60,19 +60,19 @@ const Login = () => {
         <form action="">
           <h1>Login</h1>
           <div className={styles.inputBox}>
-            <input type="text" 
-            placeholder="E-mail" 
-            value={email}
-            onChange={handleEmail}
-            required />
+            <input type="text"
+              placeholder="E-mail"
+              value={email}
+              onChange={handleEmail}
+              required />
             <FaUser className={styles.icon} />
           </div>
           <div className={styles.inputBox}>
-            <input type="password" 
-            placeholder="Senha" 
-            value={password}
-            onChange={handleSenha}
-            required />
+            <input type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={handleSenha}
+              required />
             <FaLock className={styles.icon} />
           </div>
 
