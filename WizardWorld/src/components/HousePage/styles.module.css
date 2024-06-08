@@ -313,7 +313,7 @@ transform: scale(1.2);
   -1px  2.5px 0 #000,
    2.5px  2.5px 0 #000;
    opacity: 0;
-   animation: fadeInAnimation 0.5s ease-in 5.5s forwards;
+   animation: fadeInFromLeft 1.5s ease-in 5.5s forwards;
 }
 
 .studentImage:hover {
@@ -329,6 +329,17 @@ transform: scale(1.2);
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
