@@ -12,6 +12,7 @@ import Quidditch from "../../pages/Quidditch/index.jsx";
 import Founders from "../../pages/Founders/index.jsx";  
 import ErrorPage from "../../pages/ErrorPage/index.jsx";
 
+
 export const router = createBrowserRouter([
     {
         path:"/",
