@@ -120,6 +120,11 @@
   border-radius: 50%;
   margin-right: 20px;
   display: flex;
+  box-shadow:
+  -1px -1px 0 #00000060,
+   2px -1px 0 #00000060,
+  -1px  2px 0 #00000060,
+   2px  2px 0 #00000060;
 }
 
 .pocaoIconeImagem {
@@ -151,6 +156,11 @@
   height: 130px;
   border-radius: 50%;
   margin-right: 20px;
+  box-shadow:
+   -1px 2px 0 #00000060,
+  2px 2px 0 #00000060,
+   2px  -1px 0 #00000060,
+  -1px  -1px 0 #00000060;
 }
 
 .feiticoIconeImagem {
@@ -192,6 +202,11 @@
   height: 130px;
   border-radius: 50%;
   margin-left: 20px;
+  box-shadow:
+  -1px -1px 0 #00000060,
+   -1px 2px 0 #00000060,
+  -1px  2px 0 #00000060,
+   2px  2px 0 #00000060;
 }
 
 .quadribolIconeImagem {
@@ -229,6 +244,11 @@
   height: 130px;
   border-radius: 50%;
   margin-left: 20px;
+  box-shadow:
+  -1px -1px 0 #00000060,
+   -1px 2px 0 #00000060,
+  -1px  2px 0 #00000060,
+   2px  2px 0 #00000060;
 }
 
 .creditosIconeImagem {
@@ -287,11 +307,6 @@ transform: scale(1.2);
   font-family: "FonteHarryPotter";
   font-size: 40px;
   color: white;
-  text-shadow:
-  -1px -1px 0 #000,
-   2.5px -1px 0 #000,
-  -1px  2.5px 0 #000,
-   2.5px  2.5px 0 #000;
 }
 
 .studentImage:hover {
