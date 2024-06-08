@@ -9,6 +9,20 @@ const Spells = () => {
   const [invisivel, setInvisivel] = useState([true]);
   
 
+  useEffect(() => {
+    getApiData();
+  }, []);
+
+  useEffect(() => {
+    if(filtro === ""){
+      setInvisivel(true);
+    } else {
+      setInvisivel(false);
+      pesquisa();
+    }
+  }, [filtro])
+
+  
   async function getApiData() {
     const results = await getSpells();
     setSpells(results.data);
@@ -25,18 +39,7 @@ const Spells = () => {
     setSpellsFiltradas(filtradas);
   }
 
-  useEffect(() => {
-    getApiData();
-  }, []);
-
-  useEffect(() => {
-    if(filtro === ""){
-      setInvisivel(true);
-    } else {
-      setInvisivel(false);
-      pesquisa();
-    }
-  }, [filtro])
+ 
 
   return (
     <div className={styles.principal}>
