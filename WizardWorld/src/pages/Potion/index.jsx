@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import BackgroundVideo from "../../components/BackgroundVideo/index.jsx";
 import styles from "./styles.module.css";
-import videoSrc from "../../assets/videos/corvinal.mp4";
+import videoSrc from "../../assets/videos/SalaPotions.mp4";
 import centerImage from "../../assets/images/paginaVelha.png";
 import crest from "../../assets/images/casas/hogwarts.png";
+import pena from "../../assets/images/icones/pena.png"
 import studentImage from "../../assets/images/enzo-diretor-moldura.png";
 import { getElixirList } from "../../services/Api.js";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 const Potion = () => {
   const [showChat, setShowChat] = useState(true);
@@ -21,6 +26,21 @@ const Potion = () => {
   const [difficulty, setDifficulty] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [desconhecidoInvisivel, setDesconhecidoInvisivel] = useState(true);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const estilo = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
   function mostraDetalhes() {
     const potion = findByName(linkText);
@@ -74,6 +94,10 @@ const Potion = () => {
     setPotionsFiltradas(filtradas);
   }
 
+  function voltaPagina() {
+    window.history.back();
+  }
+
   const handleStudentClick = () => {
     setShowChat(!showChat);
   };
@@ -82,8 +106,35 @@ const Potion = () => {
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
       <div className={styles.crestContainer}>
-        <img className={styles.crest} src={crest} alt="Crest" />
+        <a href="#" onClick={voltaPagina}>
+          <img className={styles.crest} src={crest} alt="Crest" />
+        </a>
       </div>
+
+      {/* //bootstrap */}
+      <div className={styles.criarPocao}>
+        <div className={styles.modal}>
+        <Button onClick={handleOpen}> <img src={pena} alt="criar poção" /></Button>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={estilo}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+        </Modal>
+      </div>
+    </div>
+
+      {/* fim */}
+
       <div className={styles.contentContainer}>
         <div className={styles.paginaContainer}>
           <div
@@ -93,16 +144,17 @@ const Potion = () => {
           >
             <div className={styles.paginaEsquerda}>
               <div className={styles.pesquisa}>
-                <h2>Qual feitiço está procurando?</h2>
+                <h2>Qual Pocão você deseja?</h2>
                 <form onSubmit={(e) => e.preventDefault()}>
                   <input
+                    className={styles.formulario}
                     type="text"
                     onChange={handleFiltro}
                     placeholder="Procure sua poção..."
                   />
                 </form>
                 {invisivel ? (
-                  <p>NADA</p>
+                  <p></p>
                 ) : (
                   <div className={styles.scrollContainer}>
                     {potionsFiltradas.map((potion) => (
@@ -135,14 +187,12 @@ const Potion = () => {
               {ingredients.length > 0 && !desconhecidoInvisivel ? (
                 <ul style={{ listStyleType: "none", padding: 0 }}>
                   {ingredients.map((name, index) => (
-                    <li key={index}>{name}</li>
+                    <ul key={index}> {name} </ul>
                   ))}
                 </ul>
               ) : !detalheInvisivel ? (
                 <p>
-                  <ul>
-                    <li>Ingredientes desconhecidos</li>
-                  </ul>
+                  <ul>Ingredientes desconhecidos</ul>
                 </p>
               ) : (
                 <p></p>
@@ -158,13 +208,10 @@ const Potion = () => {
               <div className={styles.studentText}>
                 <p>
                   Suas poções favoritas são
-                  <ul>
-                    <li>tananan</li>
-                    <li>tananin</li>
-                    <li>trolous</li>
-                    <li>Boeck OO</li>
-                    <li></li>
-                  </ul>
+                  <ul>tananan</ul>
+                  <ul>tananin</ul>
+                  <ul>trolous</ul>
+                  <ul>Boeck OO</ul>
                 </p>
               </div>
             </div>
