@@ -142,6 +142,20 @@ NaNpxemberForgot a:hover {
   text-decoration: underline;
 }
 
+.rememberForgot {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rememberForgot a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.rememberForgot a:hover {
+  scale: 1.1;
+}
+
 @keyframes fadeIn {
   from {
       opacity: 0;

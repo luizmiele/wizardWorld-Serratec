@@ -13,8 +13,8 @@ const Potion = () => {
   const [filtro, setFiltro] = useState("");
   const [potionsFiltradas, setPotionsFiltradas] = useState([]);
   const [foundPotion, setFoundPotion] = useState(null);
-  const [invisivel, setInvisivel] = useState([true]);
-  const [detalheInvisivel, setDetalheInvisivel] = useState([true]);
+  const [invisivel, setInvisivel] = useState(true);
+  const [detalheInvisivel, setDetalheInvisivel] = useState(true);
   const [linkText, setLinkText] = useState("");
   const [effect, setEffect] = useState("");
   const [sideEffect, setSideEffect] = useState("");
@@ -25,10 +25,10 @@ const Potion = () => {
   function mostraDetalhes() {
     const potion = findByName(linkText);
     setFoundPotion(potion);
-    setDifficulty(foundPotion.difficulty);
-    setEffect(foundPotion.effect);
-    setSideEffect(foundPotion.sideEffect);
-    const names = foundPotion.ingredients.map((ingredient) => ingredient.name);
+    setDifficulty(potion.difficulty);
+    setEffect(potion.effect);
+    setSideEffect(potion.sideEffect);
+    const names = potion.ingredients.map((ingredient) => ingredient.name);
     setIngredients(names);
   }
 
@@ -68,9 +68,8 @@ const Potion = () => {
   }
 
   function pesquisa() {
-    //e.preventDefault();
-    const filtradas = potions.filter((potions) =>
-      potions.name.toLowerCase().includes(filtro.toLowerCase())
+    const filtradas = potions.filter((potion) =>
+      potion.name.toLowerCase().includes(filtro.toLowerCase())
     );
     setPotionsFiltradas(filtradas);
   }
@@ -95,24 +94,25 @@ const Potion = () => {
             <div className={styles.paginaEsquerda}>
               <div className={styles.pesquisa}>
                 <h2>Qual feitiço está procurando?</h2>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                   <input
                     type="text"
                     onChange={handleFiltro}
-                    laceholder="Procure sua poção..."
+                    placeholder="Procure sua poção..."
                   />
-                  <button type="submit">🔍</button>
                 </form>
                 {invisivel ? (
                   <p>NADA</p>
                 ) : (
-                  potionsFiltradas.map((potion) => (
-                    <div className={styles.potions} key={potion.id}>
-                      <a href="#" onClick={handleContent}>
-                        {potion.name}
-                      </a>
-                    </div>
-                  ))
+                  <div className={styles.scrollContainer}>
+                    {potionsFiltradas.map((potion) => (
+                      <div className={styles.potions} key={potion.id}>
+                        <a href="#" onClick={handleContent}>
+                          {potion.name}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
@@ -133,13 +133,11 @@ const Potion = () => {
               )}
 
               {ingredients.length > 0 && !desconhecidoInvisivel ? (
-                
-                  <ul style={{ listStyleType: "none", padding: 0 }}>
-                    {ingredients.map((name, index) => (
-                      <li key={index}>{name}</li>
-                    ))}
-                  </ul>
-                
+                <ul style={{ listStyleType: "none", padding: 0 }}>
+                  {ingredients.map((name, index) => (
+                    <li key={index}>{name}</li>
+                  ))}
+                </ul>
               ) : !detalheInvisivel ? (
                 <p>
                   <ul>

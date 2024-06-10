@@ -7,13 +7,13 @@ import crest from "../../assets/images/casas/hogwarts.png";
 import studentImage from "../../assets/images/enzo-diretor-moldura.png";
 import { getSpells } from "../../services/Api.js";
 
-const Potion = () => {
+const Spell = () => {
   const [showChat, setShowChat] = useState(true);
   const [spells, setSpells] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [spellsFiltradas, setSpellsFiltradas] = useState([]);
-  const [invisivel, setInvisivel] = useState([true]);
-  const [detalheInvisivel, setDetalheInvisivel] = useState([true])
+  const [invisivel, setInvisivel] = useState(true);
+  const [detalheInvisivel, setDetalheInvisivel] = useState(true);
   const [linkText, setLinkText] = useState("");
   const [foundSpell, setFoundSpell] = useState(null);
   const [incantation, setIncantation] = useState("");
@@ -24,19 +24,18 @@ const Potion = () => {
   function mostraDetalhes() {
     const spell = findByName(linkText);
     setFoundSpell(spell);
-    setIncantation(foundSpell.incantation);
-    setEffect(foundSpell.effect);
-    setType(foundSpell.type);
-    setLight(foundSpell.light);
+    setIncantation(spell.incantation);
+    setEffect(spell.effect);
+    setType(spell.type);
+    setLight(spell.light);
   }
 
   function findByName(name) {
     return spells.find((spell) => spell.name === name);
   }
 
-
   const handleContent = (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     setLinkText(e.target.textContent);
     mostraDetalhes();
     setDetalheInvisivel(false);
@@ -61,9 +60,8 @@ const Potion = () => {
       setSpells(results.data);
       setSpellsFiltradas(results.data);
     } catch (error) {
-      
+      console.error(error);
     }
-   
   }
 
   function handleFiltro(e) {
@@ -71,7 +69,6 @@ const Potion = () => {
   }
 
   function pesquisa() {
-    //e.preventDefault();
     const filtradas = spells.filter((spell) =>
       spell.name.toLowerCase().includes(filtro.toLowerCase())
     );
@@ -86,7 +83,7 @@ const Potion = () => {
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
       <div className={styles.crestContainer}>
-        <a herf="http://localhost:5173/gryffindor">
+        <a href="http://localhost:5173/gryffindor">
           <img className={styles.crest} src={crest} alt="Crest" />
         </a>
       </div>
@@ -100,24 +97,25 @@ const Potion = () => {
             <div className={styles.paginaEsquerda}>
               <div className={styles.pesquisa}>
                 <h2>Qual feitiço está procurando?</h2>
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                   <input
                     type="text"
                     onChange={handleFiltro}
-                    laceholder="Procure sua poção..."
+                    placeholder="Procure seu feitiço..."
                   />
-                  <button type="submit">🔍</button>
                 </form>
                 {invisivel ? (
                   <p>NADA</p>
                 ) : (
-                  spellsFiltradas.map((spell) => (
-                    <div className={styles.spells} key={spell.id}>
-                      <a href="#" onClick={handleContent}>
-                        {spell.name}
-                      </a>
-                    </div>
-                  ))
+                  <div className={styles.scrollContainer}>
+                    {spellsFiltradas.map((spell) => (
+                      <div className={styles.spells} key={spell.id}>
+                        <a href="#" onClick={handleContent}>
+                          {spell.name}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>
@@ -125,13 +123,13 @@ const Potion = () => {
               {detalheInvisivel ? (
                 <p>Detalhe INVISIVEL</p>
               ) : (
-                    <p>
-                      <span>Nome: </span> {linkText} <br/>
-                      <span>Encantamento: </span> {incantation}<br/>
-                      <span>Efeito: </span> {effect}<br/>
-                      <span>Tipo: </span> {type}<br/>
-                      <span>Luz: </span> {light}<br/>
-                    </p>
+                <p>
+                  <span>Nome: </span> {linkText} <br />
+                  <span>Encantamento: </span> {incantation} <br />
+                  <span>Efeito: </span> {effect} <br />
+                  <span>Tipo: </span> {type} <br />
+                  <span>Luz: </span> {light} <br />
+                </p>
               )}
             </div>
           </div>
@@ -142,14 +140,13 @@ const Potion = () => {
           {showChat && (
             <div className={styles.chatBox}>
               <div className={styles.studentText}>
-                  Suas poções favoritas são
-                  <ul>
-                    <li>tananan</li>
-                    <li>tananin</li>
-                    <li>trolous</li>
-                    <li>Boeck OO</li>
-                    <li></li>
-                  </ul>
+                Suas poções favoritas são
+                <ul>
+                  <li>tananan</li>
+                  <li>tananin</li>
+                  <li>trolous</li>
+                  <li>Boeck OO</li>
+                </ul>
               </div>
             </div>
           )}
@@ -167,4 +164,4 @@ const Potion = () => {
   );
 };
 
-export default Potion;
+export default Spell;

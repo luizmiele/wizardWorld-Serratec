@@ -75,6 +75,14 @@
   height: 85%;
 }
 
+.potions a {
+  text-decoration: none;
+  color:#000;
+}
+
+.potions a:hover {
+  color: rgb(120, 255, 35); 
+}
 
 .paginaDireita {
   background-color: blue;
@@ -85,8 +93,6 @@
   width: 40%;
   height: 85%;  
 }
-
-
 
 .monitorContainer {
   justify-content: center;
@@ -147,6 +153,14 @@
 
 .crest:hover {
   transform: scale(1.05);
+}
+
+.scrollContainer {
+  max-height: 200px; /* Ajuste o tamanho conforme necessário */
+  overflow-y: auto;
+  border: 1px solid #ccc; /* Opcional: adicionar borda */
+  padding: 10px; /* Opcional: adicionar padding */
+  background-color: #f9f9f9; /* Opcional: adicionar cor de fundo */
 }
 
 @keyframes fadeInAnimation {

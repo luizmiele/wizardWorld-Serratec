@@ -149,6 +149,24 @@
   transform: scale(1.05);
 }
 
+.spells a {
+  text-decoration: none;
+  color:#000;
+}
+
+.spells a:hover {
+  color: rgb(120, 255, 35); 
+}
+
+.scrollContainer {
+  max-height: 200px; /* Ajuste o tamanho conforme necessário */
+  overflow-y: auto;
+  border: 1px solid #ccc; /* Opcional: adicionar borda */
+  padding: 10px; /* Opcional: adicionar padding */
+  background-color: #f9f9f9; /* Opcional: adicionar cor de fundo */
+}
+
+
 @keyframes fadeInAnimation {
   from {
     opacity: 0;
