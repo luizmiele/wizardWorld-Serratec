@@ -28,41 +28,43 @@
   justify-content: center;
   height: 6.25rem;
   margin-bottom: .625rem;
+  animation: fadeIn 2s ease-in forwards;
 }
 .wrapper{
   display: flex;
-  width: 24rem;
-  height: 27.6rem;
+  width: 26.25rem;
+  height: 34.375rem;
   background: transparent;
   border: .125rem solid rgba(255, 255, 255, .2);
-  backdrop-filter: blur(30px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, .2);
   color: #fff;
   border-radius: 10px;
-  padding: 10px 30px;
+  padding: 10px 40px;
+  animation: fadeIn 2s ease-in forwards;
 }
 
 .wrapper h1 {
-  font-size: 2.10rem;
+  font-size: 2.25rem;
   text-align: center;
 }
 
 .wrapper .inputBox{
   position: relative;
-  width: 22.80rem;
-  margin: 1.10rem 0;
+  width: 23.125rem;
+  margin: 1.25rem 0;
 }
 
 .inputBox input {
-  width: 380px;
+  width: 350.64px;
   height: 100%;
   background: transparent;
-  border: .1837rem solid rgba(255, 255, 255, .2);
+  border: .1875rem solid rgba(255, 255, 255, .2);
   outline: none;
   border-radius: 1rem;
   font-size: 1rem;
   color: #fff;
-  padding: 1.25rem 2.80rem 1.25rem 1.25rem;
+  padding: 1.25rem 2.8125rem 1.25rem 1.25rem;
 }
 
 .inputBox input::placeholder {
@@ -71,10 +73,10 @@
 
 .inputBox .icon{
 position: absolute;
-right: .128rem;
+right: .125rem;
 top: 50%;
 transform: translateY(-50%);
-margin-right: 1.15rem;
+margin-right: 1.25rem;
 }
 
 .checkbox{
@@ -85,27 +87,27 @@ margin-right: 1.15rem;
   margin-bottom: .625rem;
 }
 
-.wrapper .rememberForgot {
+.wrapper NaNpxemberForgot {
   font-size: 16px;
   justify-content: space-evenl;
   margin: .625rem;
 }
 
-.rememberForgot label input {
+NaNpxemberForgot label input {
   accent-color: #fff;
   margin-right: .25rem;
 }
 
-.rememberForgot a {
+NaNpxemberForgot a {
   color:#fff;
   text-decoration: none;
   padding-top: 1.25rem;
-  padding-left: 220px;
+  padding-left: 180px;
   margin-bottom: -5px;
   font-size: 16px;
 }
 
-.rememberForgot a:hover {
+NaNpxemberForgot a:hover {
   text-decoration: underline;
 }
 
@@ -138,4 +140,13 @@ margin-right: 1.15rem;
 
 .registerLink p a:hover {
   text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }

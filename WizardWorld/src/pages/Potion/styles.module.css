@@ -1,59 +1,170 @@
-body {
-  display: flex;
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-size: cover;
+@font-face {
+  font-family: "FonteHarryPotter";
+  src: url("../../assets/fonts/HARRP___.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.app {
+@font-face {
+  font-family: "FonteTomRiddle";
+  src: url("../../assets/fonts/TomRiddle.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* VOLTAR TODAS AS OPACITY PARA 0 E COLOCAR AS ANIMATIONS */
+/* VOLTAR TODAS AS OPACITY PARA 0 E COLOCAR AS ANIMATIONS */
+/* VOLTAR TODAS AS OPACITY PARA 0 E COLOCAR AS ANIMATIONS */
+/* VOLTAR TODAS AS OPACITY PARA 0 E COLOCAR AS ANIMATIONS */
+
+.principal{
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.crest {
+  padding: 25px;
+  width: 280px;
+  height: auto;
+  /* animation: fadeInAnimation 3s ease-in-out forwards; */
+}
+
+.crestContainer {
+  width: 280px;
+  height: 30vh;
+}
+
+.contentContainer {
   align-items: center;
-  color: #fff;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 100%;
+  /* animation: fadeInAnimation 0.5s ease-in 3s forwards; */
+  opacity: 1;
 }
 
-.app img {
-  width: 100vw;
-  height: 100vh;
-}
-
-.header {
-  margin: 20px;
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.main {
+.paginaContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 1000px;
+  height: 700px;
+}
+
+.paginas {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.paginaEsquerda {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  width: 40%;
+  height: 85%;
 }
 
-.search-section,
-.recipe-section {
-  margin: 20px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  width: 300px;
+
+.paginaDireita {
+  background-color: blue;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 50px;
+  width: 40%;
+  height: 85%;  
 }
 
-button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
+
+
+.monitorContainer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 590px;
+  height: 80vh;
+  margin-top: 7%;
 }
 
-.aside {
-  margin: 20px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
+.monitorImagem {
+  margin-bottom: 140px;
+  margin-right: 0px;
+  width: 380px;
+  height: 470px;
 }
 
-.aside img {
-  width: 100px;
-  border-radius: 50%;
+.monitorTexto {
+  margin-right: 150px;
+  width: 650px;
+  height: 900px;
+}
+
+.chatBox {
+  background-image: url('./src/assets/images/pergaminho.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 38px;
+  margin-left: 50px;
+  opacity: 1;
+  /* animation: fadeInAnimation 0.5s ease-in 4.5s forwards; */
+}
+
+.studentText {
+  width: 90%;
+  height: 90%;
+  font-family: "FonteHarryPotter";
+  font-size: 40px;
+  color: white;
+  text-shadow:
+  -1px -1px 0 #000,
+   2.5px -1px 0 #000,
+  -1px  2.5px 0 #000,
+   2.5px  2.5px 0 #000;
+   opacity: 1;
+   /* animation: fadeInFromLeft 1.5s ease-in 5.5s forwards; */
+}
+
+.studentImage:hover {
+  transform: scale(1.05);
+}
+
+.crest:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromLeft {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
 }

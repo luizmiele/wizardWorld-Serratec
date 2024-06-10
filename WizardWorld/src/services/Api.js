@@ -13,10 +13,10 @@ const apiWW = axios.create({
 export async function getElixirList() {
     try {
       const results = await axios.get("https://wizard-world-api.herokuapp.com/Elixirs");
+      return results;
     } catch (error) {
-      console.log(error);
+      return console.log(error);
       }
-    return results
    };
 
    export async function getSpells() {

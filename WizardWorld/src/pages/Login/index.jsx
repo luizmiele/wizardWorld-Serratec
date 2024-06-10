@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [checaLogin, setChecaLogin] = useState(0);
+  const [house, setHouse] = useState("");
 
   const users = [
     { email: "alunoG", password: "123", house: "gryffindor" },
@@ -27,7 +28,7 @@ const Login = () => {
         alert("login invalido!");
       }
     }
-  });
+  }), [checaLogin];
 
   function handleEmail(e) {
     setEmail(e.target.value);
