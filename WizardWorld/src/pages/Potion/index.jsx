@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import PotionMusic from "../../components/BackgroundMusic/PotionMusic.jsx"
 
 const Potion = () => {
   const [showChat, setShowChat] = useState(true);
@@ -105,6 +106,7 @@ const Potion = () => {
   return (
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
+      <PotionMusic />
       <div className={styles.crestContainer}>
         <a href="#" onClick={voltaPagina}>
           <img className={styles.crest} src={crest} alt="Crest" />

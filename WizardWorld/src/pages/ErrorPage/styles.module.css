@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "FonteMapaMaroto";
+    src: url("../../assets/fonts/AppleChancery.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
 .principal {
     width: 100vw;
     height: 100vh;
@@ -13,23 +20,28 @@
 .t1, .t2 {
     position: absolute;
     left: 0;
-    padding-left: 20px; 
+    padding-left: 20px;
+    font-family: "FonteMapaMaroto";
+    font-size: 15px;
 }
 
 .t1 {
-    top: 20%; 
+    top: 10%;
+    left: 5%;
+    font-size: 25px;
 }
 
 .t2 {
-    opacity: 0; 
-    top: 30%; 
+    font-size: 20px;
+    opacity: 0;
+    top: 30%;
     animation: fadeIn 3s ease-in 4s forwards;
 }
 
 .mapa {
     position: absolute;
     left: 0;
-    opacity: 0; 
+    opacity: 0;
     margin-top: 200px;
     margin-left: -25px;
     animation: fadeIn 3s ease-in 4s forwards;
