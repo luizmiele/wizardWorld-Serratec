@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import BackgroundVideo from '../BackgroundVideo/index.jsx';
+import HousePageMusic from '../../components/BackgroundMusic/HousePageMusic.jsx';
 import styles from './styles.module.css';
 import centerImage from '../../assets/images/livro.png';
 import { Link } from 'react-router-dom';
@@ -16,6 +17,7 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
   return (
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc}/>
+      <HousePageMusic />
       <div className={styles.crestContainer}>
         <img className={styles.crest} src={crest} alt="Crest" />
       </div>
@@ -53,7 +55,7 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
                 <div className={styles.creditosContainer}>
                   <div className={styles.creditosIcone}>
                     <div className={styles.creditosIconeImagem}>
-                      <un><Link to="/founders"><p><img src="./src/assets/images/icone-temporario.png" alt="fundadores" /></p></Link></un>
+                      <un><Link to="/founders"><p><img src="./src/assets/images/icon-hogwarts-escudo.png" alt="fundadores" /></p></Link></un>
                     </div>
                   </div>
                   <h1 className={styles.linkTexto}>Créditos</h1>

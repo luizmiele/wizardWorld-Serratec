@@ -8,10 +8,11 @@ import houseCrest from '../../assets/images/casas/gryffindor.png';
 const Gryffindor = () => {
   const studentText = (
     <>
-      <p>
-      Bem-vindo(a) querido aluno da Grifinória!
-      <br />
-      O que iremos aprender hoje?!
+      <p style={{color : 'red'}}>
+      {`                                                                             Bem-vindo aluno da Grifinória!
+        O que iremos aprender hoje?`.split('').map((letter, index) => (
+          <span key={index} style={{ '--index': index }}>{letter}</span>
+        ))}
       </p>
     </>
   );

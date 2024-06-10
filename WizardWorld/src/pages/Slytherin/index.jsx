@@ -7,10 +7,11 @@ import houseCrest from '../../assets/images/casas/slytherin.png';
 const Slytherin = () => {
   const studentText = (
     <>
-      <p>
-      Bem-vindo(a) querido aluno da Sonserina!
-      <br />
-      O que iremos aprender hoje?!
+      <p style={{color : 'green'}}>
+      {`                                                                             Bem-vindo aluno da Sonserinal!
+        O que iremos aprender hoje?`.split('').map((letter, index) => (
+          <span key={index} style={{ '--index': index }}>{letter}</span>
+        ))}
       </p>
     </>
   );

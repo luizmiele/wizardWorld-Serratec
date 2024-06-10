@@ -1,0 +1,19 @@
+.musicControl {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+
+  .musicButton {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .musicButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }

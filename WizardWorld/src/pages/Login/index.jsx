@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import Wizarding_World_Logo from "../../assets/images/Wizarding_World_Logo.png";
 import { useNavigate } from "react-router-dom";
+import LoginMusic from "../../components/BackgroundMusic/LoginMusic.jsx"
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -48,6 +49,7 @@ const Login = () => {
 
   return (
     <div className={styles.principal}>
+      <LoginMusic />
       <div className={styles.wwlogo}>
         <a
           className={styles.model}

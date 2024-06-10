@@ -7,10 +7,11 @@ import houseCrest from '../../assets/images/casas/ravenclaw.png';
 const Ravenclaw = () => {
   const studentText = (
     <>
-      <p>
-        Bem-vindo(a) querido aluno da Corvinal!
-      <br />
-      O que iremos aprender hoje?!
+      <p style={{ color: 'rgb(65, 105, 225)' }}>
+        {`                                                                             Bem-vindo aluno da Corvinal!
+        O que iremos aprender hoje?`.split('').map((letter, index) => (
+          <span key={index} style={{ '--index': index }}>{letter}</span>
+        ))}
       </p>
     </>
   );

@@ -7,10 +7,11 @@ import houseCrest from '../../assets/images/casas/hufflepuff.png';
 const Hufflepuff = () => {
   const studentText = (
     <>
-      <p>
-      Bem-vindo(a) querido aluno da Lufa-lufa!
-      <br />
-      O que iremos aprender hoje?!
+      <p style={{color : 'yellow'}}>
+      {`                                                                             Bem-vindo aluno da Lufa-lufa!
+        O que iremos aprender hoje?`.split('').map((letter, index) => (
+          <span key={index} style={{ '--index': index }}>{letter}</span>
+        ))}
       </p>
     </>
   );
