@@ -11,17 +11,33 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import CustomThemeProvider from "../../components/CustomThemeProvider/index.jsx";
+import IconLabelButtons from "../../components/IconLabelButtons/index.jsx";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
+
+const labels = [
+  "Nome da Feitico",
+  "Encantamento",
+  "Efeito",
+  "Tipo",
+  "Luz",
+];
 
 const estilo = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "rgba(241, 218, 143, 0.8)",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: 2,
 };
 
 const Spell = () => {
@@ -33,10 +49,16 @@ const Spell = () => {
   const [detalheInvisivel, setDetalheInvisivel] = useState(true);
   const [linkText, setLinkText] = useState("");
   const [foundSpell, setFoundSpell] = useState(null);
+  const [spellName, setSpellName] = useState ("");
   const [incantation, setIncantation] = useState("");
   const [effect, setEffect] = useState("");
   const [type, setType] = useState("");
   const [light, setLight] = useState("");
+  const [newSpellName, setNewSpellName] = useState ("");
+  const [newIncantation, setNewIncantation] = useState("");
+  const [newEffect, setNewEffect] = useState("");
+  const [newType, setNewType] = useState("");
+  const [newLight, setNewLight] = useState("");
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -104,6 +126,32 @@ function voltaPagina(){
     setShowChat(!showChat);
   };
 
+
+  // Função para enviar dados para a API
+  const sendFormToApi = async () => {
+    try {
+      const formData = {
+        nomeSpell: newSpellName,
+        encantamento: newIncantation,
+        efeito: newEffect,
+        tipo: newType,
+        luz: newLight
+      };
+      console.log("FORMA DATA: " + formData)
+      const url = "https://6632937ac51e14d69564d9af.mockapi.io/test/v1";
+      const endpoint = "/spells";
+      await axios.post(url + endpoint, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Formulário enviado com sucesso:", formData);
+      // Resetar o formulário aqui, se necessário
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
@@ -122,14 +170,19 @@ function voltaPagina(){
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={estilo}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
+           <Box sx={estilo}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Criar Feitiço
+              </Typography>
+              <CustomThemeProvider>
+                <TextField fullWidth label="Nome do Feitiço" id="fullWidth" onChange={(e) => setNewSpellName(e.target.value)} />
+                <TextField fullWidth label="Encantamento" id="fullWidth" onChange={(e) => setNewIncantation(e.target.value)}/>
+                <TextField fullWidth label="Efeito" id="fullWidth" onChange={(e) => setNewEffect(e.target.value)}/>
+                <TextField fullWidth label="Tipo" id="fullWidth" onChange={(e) => setNewType(e.target.value)}/>
+                <TextField fullWidth label="Luz" id="fullWidth" onChange={(e) => setNewLight(e.target.value)}/>
+                <IconLabelButtons onClick={sendFormToApi}/>
+              </CustomThemeProvider>
+            </Box>
         </Modal>
       </div>
     </div>
@@ -169,7 +222,7 @@ function voltaPagina(){
             </div>
             <div className={styles.paginaDireita}>
               {detalheInvisivel ? (
-                <p>Detalhe INVISIVEL</p>
+                <p></p>
               ) : (
                 <p>
                   <span className={styles.atributo}>Nome: </span> {linkText} <br />

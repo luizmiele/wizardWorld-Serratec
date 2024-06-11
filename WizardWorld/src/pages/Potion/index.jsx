@@ -30,19 +30,16 @@ const Potion = () => {
   const [effect, setEffect] = useState("");
   const [sideEffect, setSideEffect] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [ingredients, setIngredients] = useState([]);
+  const [newPotionName, setNewPotionName] = useState('');
+  const [newEffect, setNewEffect] = useState("");
+  const [newSideEffect, setNewSideEffect] = useState("");
+  const [newDifficulty, setNewDifficulty] = useState("");
   const [newIngredients, setNewIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [desconhecidoInvisivel, setDesconhecidoInvisivel] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const labels = [
-    "Nome da Poção",
-    "Efeito",
-    "Efeito colateral",
-    "Dificuldade",
-    "Ingredientes",
-  ];
 
   const estilo = {
     position: "absolute",
@@ -122,18 +119,17 @@ const Potion = () => {
 
   // Função para enviar dados para a API
   const sendFormToApi = async () => {
-    console.log("FRED")
     try {
       const formData = {
-        nomePotion: potionName,
-        efeito: effect,
-        efeitoColateral: sideEffect,
-        dificuldade: difficulty,
+        nomePotion: newPotionName,
+        efeito: newEffect,
+        efeitoColateral: newSideEffect,
+        dificuldade: newDifficulty,
         ingredientes: newIngredients,
       };
       console.log("FORMA DATA: " + formData)
       const url = "https://6632937ac51e14d69564d9af.mockapi.io/test/v1";
-      const endpoint = "/form";
+      const endpoint = "/potions";
       await axios.post(url + endpoint, formData, {
         headers: {
           "Content-Type": "application/json",
@@ -186,10 +182,10 @@ const Potion = () => {
                 Criar Poção
               </Typography>
               <CustomThemeProvider>
-                <TextField fullWidth label="Nome da Função" id="fullWidth" onChange={(e) => setPotionName(e.target.value)} />
-                <TextField fullWidth label="Efeito" id="fullWidth" onChange={(e) => setEffect(e.target.value)}/>
-                <TextField fullWidth label="Efeito Colateral" id="fullWidth" onChange={(e) => setSideEffect(e.target.value)}/>
-                <TextField fullWidth label="Dificuldade" id="fullWidth" onChange={(e) => setDifficulty(e.target.value)}/>
+                <TextField fullWidth label="Nome da Função" id="fullWidth" onChange={(e) => setNewPotionName(e.target.value)} />
+                <TextField fullWidth label="Efeito" id="fullWidth" onChange={(e) => setNewEffect(e.target.value)}/>
+                <TextField fullWidth label="Efeito Colateral" id="fullWidth" onChange={(e) => setNewSideEffect(e.target.value)}/>
+                <TextField fullWidth label="Dificuldade" id="fullWidth" onChange={(e) => setNewDifficulty(e.target.value)}/>
                 <TextField fullWidth label="Ingredientes" id="fullWidth" onChange={(e) => setNewIngredients(e.target.value)}/>
                 <IconLabelButtons onClick={sendFormToApi}/>
               </CustomThemeProvider>
@@ -236,14 +232,14 @@ const Potion = () => {
                 <p></p>
               ) : (
                 <p>
-                  <span>Nome: </span> {linkText} <br />
-                  <span>Efeito: </span> {effect}
+                  <span className={styles.atributo}>Nome: </span> {linkText} <br />
+                  <span className={styles.atributo}>Efeito: </span> {effect}
                   <br />
-                  <span>Efeito colateral: </span> {sideEffect}
+                  <span className={styles.atributo}>Efeito colateral: </span> {sideEffect}
                   <br />
-                  <span>Dificuldade: </span> {difficulty}
+                  <span className={styles.atributo}>Dificuldade: </span> {difficulty}
                   <br />
-                  <span>Ingredientes: </span>
+                  <span className={styles.atributo}>Ingredientes: </span>
                 </p>
               )}
 

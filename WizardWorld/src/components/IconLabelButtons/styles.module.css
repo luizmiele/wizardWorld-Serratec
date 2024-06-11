@@ -1,0 +1,11 @@
+.botao{
+    height: 35px;
+    width: 120px;
+    border-radius: 9px;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+.botao:active {
+    transform: scale(0.95);
+  }

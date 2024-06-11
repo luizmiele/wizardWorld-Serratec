@@ -271,6 +271,12 @@
   z-index: 0;
 }
 
+.atributo {
+  font-size: 35px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+
 .modal{
   background-image: url("../../assets/images/icones/fundo-pena.jpeg") ;
   background-size: cover;
