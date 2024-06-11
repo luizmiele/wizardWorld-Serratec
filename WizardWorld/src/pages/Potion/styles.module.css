@@ -284,6 +284,11 @@
   z-index: 0;
 }
 
+.criarPocao h2 {
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
+}
+
 .atributo {
   font-size: 35px;
   font-family: "Times New Roman", Times, serif;
@@ -303,15 +308,21 @@
   margin-left: 10px;
   border-radius: 16px;
   z-index: 1;
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
 }
 .modal button{
   height: 100%;
   width: 100%;
   z-index: 1;
 }
+
 .modal button img{
   width: 150px;
   height: 150px;
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
+  
 }
 .modal button :hover{
   transform: scale(1.5);
