@@ -254,8 +254,8 @@ const Potion = () => {
               ) : (
                 <div className={styles.atributos}>
                   <div>
-                    <button onClick={() => addFavorite(linkText)}> 
-                      AAAAAAAAAAAAAAAAAA
+                    <button className={styles.adicionaRemove} onClick={() => addFavorite(linkText)}> 
+                      Add / Romove
                     </button>
                   </div>
                   <p>

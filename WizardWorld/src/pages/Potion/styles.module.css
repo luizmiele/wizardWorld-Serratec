@@ -170,7 +170,7 @@
 
 .studentText {
   width: 90%;
-  height: 90%;
+  height: 500px;
   font-family: "FonteHarryPotter";
   font-size: 2rem;
   color: white;
@@ -181,6 +181,15 @@
    2.5px  2.5px 0 #000;
    opacity: 1;
    /* animation: fadeInFromLeft 1.5s ease-in 5.5s forwards; */
+}
+.studentText a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.studentText a:hover{
+  transform: scale(1.5);
 }
 
 .studentImage:hover {
@@ -302,4 +311,16 @@
 }
 .modal button :hover{
   transform: scale(1.5);
+}
+
+.adicionaRemove{
+  width: 130px;
+  height: 30px;
+  font-size: 15px;
+  border-radius: 9px;
+  background-color: blue;
+  color: white
+  ;
+
+
 }

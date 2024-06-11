@@ -245,8 +245,8 @@ const Spell = () => {
             <div className={styles.paginaDireita}>
               <div className={styles.atributos}>
                 <div>
-                  <button onClick={() => addFavorite(linkText)}>
-                    AAAAAAAAAAAAAAAAAA
+                  <button className={styles.adicionaRemove} onClick={() => addFavorite(linkText)}>
+                    Add / Remove
                   </button>
                 </div>
                 {detalheInvisivel ? (
