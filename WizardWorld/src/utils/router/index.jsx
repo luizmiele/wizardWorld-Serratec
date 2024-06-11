@@ -8,7 +8,7 @@ import Ravenclaw from "../../pages/Ravenclaw/index.jsx";
 import Hufflepuff from "../../pages/Hufflepuff/index.jsx";
 import Potion from "../../pages/Potion/index.jsx";
 import Spell from "../../pages/Spells/index.jsx"; 
-import Quidditch from "../../pages/Quidditch/index.jsx";
+import Shop from "../../pages/Shop/index.jsx";
 import Founders from "../../pages/Founders/index.jsx";  
 import ErrorPage from "../../pages/ErrorPage/index.jsx";
 
@@ -43,8 +43,8 @@ export const router = createBrowserRouter([
         element:<Spell/>,
     },
     {
-        path:"/quidditch",
-        element:<Quidditch/>,
+        path:"/shop",
+        element:<Shop/>,
     },
     {
         path:"/founders",

@@ -3,20 +3,29 @@ import vassoura1 from "../../assets/images/Vassoura1.png"
 import vassoura2 from "../../assets/images/Vassoura2.png"
 import vassoura3 from "../../assets/images/Vassoura3.png"
 import vassoura4 from "../../assets/images/Vassoura4.png"
-import hagrid from "../../assets/images/HagridPS1.png"
 import ShopMusic from "../../components/BackgroundMusic/ShopMusic.jsx"
+import { stepButtonClasses } from "@mui/material"
+import janela from "../../assets/images/icones/saida-icone2.png";
 
-
-
-const Quidditch = () => {
+const Shop = () => {
+    function voltaPagina() {
+        window.history.back();
+      }
 
     return (
         <div className={styles.principal}>
             <ShopMusic />
+            <div className={styles.exitImageBackground}>
+                <div className={styles.exitImageIcon}>
+                    <a href="#" onClick={voltaPagina}>
+                     <img className={styles.porta} src={janela} alt="porta" />
+                    </a>
+                </div>
+            </div>
             <div className={styles.paginaEsquerda}>
                 <div className={styles.vassoura}>
                     <img src={vassoura1} className={styles.imagem1} alt="vassoura" />
-                        <button className={styles.botao}> <a href="https://www.mercadolivre.com.br/vassoura-cerdas-naturais-extramacias-varre-suave-condor/p/MLB16195475#reco_item_pos=0&reco_backend=univb-pdp-buybox&reco_backend_type=low_level&reco_client=pdp-v2p&reco_id=23a67d5f-a1f8-45dd-8219-4023a2978981&reco_backend_model=univb" target="_blank">COMPRAR</a></button>
+                        <button className={styles.botao}> <a href="https://produto.mercadolivre.com.br/MLB-4776168616-vassoura-do-mito-_JM" target="_blank">COMPRAR</a></button>
                 </div>
                 <div className={styles.vassoura}>
                     <img src={vassoura2} className={styles.imagem}alt="vassoura" />
@@ -25,13 +34,13 @@ const Quidditch = () => {
             </div>
 
             <div className={styles.paginaMeio}>
-                <a href="https://youtu.be/8aF54VgRna0?si=ghjbzjQ3LfhUSqG9" target="_blank"> <img className={styles.hagrid} src={hagrid} alt="hagrid da shoppe" /> </a>
+                <a href="https://youtu.be/8aF54VgRna0?si=ghjbzjQ3LfhUSqG9" target="_blank"> <img className={styles.hagrid}/> </a>
                 <div className={styles.pergaminho}>
                     <span>
                         Fala meu cria!
                     </span>
                     <span>
-                        Oque gostaria de comprar hoje?
+                        O que gostaria de comprar hoje?
                     </span>
                 </div>
             </div>
@@ -49,4 +58,4 @@ const Quidditch = () => {
         </div>
     )
   };
-  export default Quidditch;
+  export default Shop;
