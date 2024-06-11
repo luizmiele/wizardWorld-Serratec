@@ -29,7 +29,8 @@
   padding: 1.5625rem;
   width: 17.5rem;
   height: auto;
-  /* animation: fadeInAnimation 3s ease-in-out forwards; */
+  opacity: 0;
+  animation: fadeInAnimation 3s ease-in-out forwards;
 }
 
 .crestContainer {
@@ -43,8 +44,8 @@
   flex-direction: row;
   width: 70%;
   height: 100%;
-  /* animation: fadeInAnimation 0.5s ease-in 3s forwards; */
-  opacity: 1;
+  animation: fadeInAnimation 0.5s ease-in 3s forwards;
+  opacity: 0;
 }
 
 .paginaContainer {
@@ -142,6 +143,8 @@
   margin-bottom: 8.75rem;
   width: 23.75rem;
   height: 29.375rem;
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
 }
 
 .monitorTexto {
@@ -161,11 +164,12 @@
   text-align: center;
   margin-top: 2.375rem;
   margin-left: 3.125rem;
-  opacity: 1;
-  /* animation: fadeInAnimation 0.5s ease-in 4.5s forwards; */
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
 }
 
 .studentText {
+  margin-top: 15px;
   width: 90%;
   height: 500px;
   font-family: "FonteHarryPotter";
@@ -173,8 +177,8 @@
   color: white;
   text-shadow: -1px -1px 0 #000, 2.5px -1px 0 #000, -1px 2.5px 0 #000,
     2.5px 2.5px 0 #000;
-  opacity: 1;
-  /* animation: fadeInFromLeft 1.5s ease-in 5.5s forwards; */
+  opacity: 0;
+  animation: fadeInFromLeft 1.5s ease-in 5.5s forwards; 
 }
 
 .studentText a{
@@ -281,6 +285,11 @@
   z-index: 0;
 }
 
+.criarFeitico h2 {
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
+}
+
 .modal {
   background-image: url("../../assets/images/icones/fundo-pena.jpeg");
   background-size: cover;
@@ -294,6 +303,8 @@
   margin-left: 10px;
   border-radius: 16px;
   z-index: 1;
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
 }
 .modal button {
   height: 100%;
@@ -303,6 +314,8 @@
 .modal button img {
   width: 150px;
   height: 150px;
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease-in 4.5s forwards;
 }
 .modal button :hover {
   transform: scale(1.5);

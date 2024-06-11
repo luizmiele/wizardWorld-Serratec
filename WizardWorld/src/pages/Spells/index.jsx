@@ -275,7 +275,7 @@ const Spell = () => {
           {showChat && (
             <div className={styles.chatBox}>
               <div className={styles.studentText}>
-                <p>Suas poções favoritas são</p>
+                <p>POÇÕES FAVORITAS</p>
                 <ul>
                   {favorite.map((fav, index) => (
                     <ul>

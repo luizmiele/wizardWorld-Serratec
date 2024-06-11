@@ -298,7 +298,7 @@ const Potion = () => {
           {showChat && (
             <div className={styles.chatBox}>
               <div className={styles.studentText}>
-                <p>FOCOES FAVORITAS</p>
+                <p>POÇÕES FAVORITAS</p>
                 <ul>
                   {favorite.map((fav, index) => (
                     <ul>
