@@ -4,6 +4,7 @@ import vassoura2 from "../../assets/images/Vassoura2.png"
 import vassoura3 from "../../assets/images/Vassoura3.png"
 import vassoura4 from "../../assets/images/Vassoura4.png"
 import hagrid from "../../assets/images/HagridPS1.png"
+import ShopMusic from "../../components/BackgroundMusic/ShopMusic.jsx"
 
 
 
@@ -11,6 +12,7 @@ const Quidditch = () => {
 
     return (
         <div className={styles.principal}>
+            <ShopMusic />
             <div className={styles.paginaEsquerda}>
                 <div className={styles.vassoura}>
                     <img src={vassoura1} className={styles.imagem1} alt="vassoura" />

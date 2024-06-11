@@ -11,18 +11,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import SpellsMusic from '../../components/BackgroundMusic/SpellsMusic.jsx';
+
+
 import CustomThemeProvider from "../../components/CustomThemeProvider/index.jsx";
 import IconLabelButtons from "../../components/IconLabelButtons/index.jsx";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
 
-const labels = [
-  "Nome da Feitico",
-  "Encantamento",
-  "Efeito",
-  "Tipo",
-  "Luz",
-];
 
 const estilo = {
   position: "absolute",
@@ -155,6 +151,7 @@ function voltaPagina(){
   return (
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
+      <SpellsMusic />
       <div className={styles.crestContainer}>
         <a href="#" onClick={voltaPagina}>
           <img className={styles.crest} src={crest} alt="Crest" />

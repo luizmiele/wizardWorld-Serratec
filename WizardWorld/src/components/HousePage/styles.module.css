@@ -136,6 +136,34 @@ box-shadow:
   height: 90%;
 }
 
+.textoCentralEsquerda {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  font-family: "FonteTomRiddle";
+  font-size: 50px;
+  color: black;
+  text-align: left;
+  opacity: 0;
+  animation: fadeInAnimation 1.5s ease-in forwards;
+  animation-delay: 25s;
+}
+
+.textoCentralDireita {
+  position: absolute;
+  top: 50%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  font-family: "FonteTomRiddle";
+  font-size: 50px;
+  color: black;
+  text-align: right;
+  opacity: 0;
+  animation: fadeInAnimation 1.5s ease-in forwards;
+  animation-delay: 29s;
+}
+
 .paginaEsquerda {
   display: flex;
   flex-direction: column;

@@ -1,19 +1,27 @@
 .musicControl {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
 
-  .musicButton {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+.musicButton {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
 
-  .musicButton:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+.musicButton:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+input[type="range"] {
+  cursor: pointer;
+}
