@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './Music.module.css';
 
 const CreditsMusic = () => {
-    const [volume, setVolume] = useState(0.5);
+    const [volume, setVolume] = useState(1);
     const audioRef = useRef(null);
 
    const handleVolumeChange = (e) => {

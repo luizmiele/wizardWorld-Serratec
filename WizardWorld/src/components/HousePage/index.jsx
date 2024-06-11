@@ -20,6 +20,11 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
       <HousePageMusic />
       <div className={styles.crestContainer}>
         <img className={styles.crest} src={crest} alt="Crest" />
+        <div className={styles.exitImageBackground}>
+          <div className={styles.exitImageIcon}>
+            <Link to="/"><img src="./src/assets/images/icones/saida-icone.png" alt="icone-saida" className={styles.exitImage} /></Link>
+          </div>
+        </div>
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.livroContainer}>
