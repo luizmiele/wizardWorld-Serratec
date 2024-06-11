@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BackgroundVideo from "../../components/BackgroundVideo/index.jsx";
 import styles from "./styles.module.css";
 import videoSrc from "../../assets/videos/SalaPotions.mp4";
@@ -11,11 +11,12 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import PotionMusic from "../../components/BackgroundMusic/PotionMusic.jsx"
-import CustomThemeProvider from "../../components/CustomThemeProvider/index.jsx";
+import PotionMusic from "../../components/BackgroundMusic/PotionMusic.jsx";
 import IconLabelButtons from "../../components/IconLabelButtons/index.jsx";
 import axios from "axios";
 import TextField from "@mui/material/TextField";
+import { FavoritesContext } from "../../contexts/FavoriteScreen.jsx";
+
 
 const Potion = () => {
   const [showChat, setShowChat] = useState(true);
@@ -26,20 +27,23 @@ const Potion = () => {
   const [invisivel, setInvisivel] = useState(true);
   const [detalheInvisivel, setDetalheInvisivel] = useState(true);
   const [linkText, setLinkText] = useState("");
-  const [potionName, setPotionName] = useState('');
+  const [potionName, setPotionName] = useState("");
   const [effect, setEffect] = useState("");
   const [sideEffect, setSideEffect] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [newPotionName, setNewPotionName] = useState('');
+  const [newPotionName, setNewPotionName] = useState("");
   const [newEffect, setNewEffect] = useState("");
   const [newSideEffect, setNewSideEffect] = useState("");
   const [newDifficulty, setNewDifficulty] = useState("");
   const [newIngredients, setNewIngredients] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [desconhecidoInvisivel, setDesconhecidoInvisivel] = useState(true);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const { favorite, addFavorite} = useContext(FavoritesContext);
 
   const estilo = {
     position: "absolute",
@@ -117,7 +121,6 @@ const Potion = () => {
     setShowChat(!showChat);
   };
 
-  // Função para enviar dados para a API
   const sendFormToApi = async () => {
     try {
       const formData = {
@@ -127,7 +130,6 @@ const Potion = () => {
         dificuldade: newDifficulty,
         ingredientes: newIngredients,
       };
-      console.log("FORMA DATA: " + formData)
       const url = "https://6632937ac51e14d69564d9af.mockapi.io/test/v1";
       const endpoint = "/potions";
       await axios.post(url + endpoint, formData, {
@@ -135,23 +137,19 @@ const Potion = () => {
           "Content-Type": "application/json",
         },
       });
+      alert("Formulario enviado com sucesso!")
       console.log("Formulário enviado com sucesso:", formData);
-      // Resetar o formulário aqui, se necessário
     } catch (error) {
       console.error(error);
     }
   };
 
-  // Função para limpar o formulário
   const clearForm = () => {
-    // Limpa os estados que mantêm os dados do formulário
     setLinkText("");
     setEffect("");
     setSideEffect("");
     setDifficulty("");
     setIngredients([]);
-
-    // Outras ações de limpeza, se necessário
     console.log("Formulário limpo.");
   };
 
@@ -166,7 +164,7 @@ const Potion = () => {
       </div>
 
       <div className={styles.criarPocao}>
-          <h2>Crie sua poção!</h2>
+        <h2>Crie sua poção!</h2>
         <div className={styles.modal}>
           <Button onClick={handleOpen}>
             <img src={pena} alt="criar poção" />
@@ -181,14 +179,37 @@ const Potion = () => {
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 Criar Poção
               </Typography>
-              <CustomThemeProvider>
-                <TextField fullWidth label="Nome da Função" id="fullWidth" onChange={(e) => setNewPotionName(e.target.value)} />
-                <TextField fullWidth label="Efeito" id="fullWidth" onChange={(e) => setNewEffect(e.target.value)}/>
-                <TextField fullWidth label="Efeito Colateral" id="fullWidth" onChange={(e) => setNewSideEffect(e.target.value)}/>
-                <TextField fullWidth label="Dificuldade" id="fullWidth" onChange={(e) => setNewDifficulty(e.target.value)}/>
-                <TextField fullWidth label="Ingredientes" id="fullWidth" onChange={(e) => setNewIngredients(e.target.value)}/>
-                <IconLabelButtons onClick={sendFormToApi}/>
-              </CustomThemeProvider>
+              <TextField
+                fullWidth
+                label="Nome da Função"
+                id="fullWidth"
+                onChange={(e) => setNewPotionName(e.target.value)}
+              />
+              <TextField
+                fullWidth
+                label="Efeito"
+                id="fullWidth"
+                onChange={(e) => setNewEffect(e.target.value)}
+              />
+              <TextField
+                fullWidth
+                label="Efeito Colateral"
+                id="fullWidth"
+                onChange={(e) => setNewSideEffect(e.target.value)}
+              />
+              <TextField
+                fullWidth
+                label="Dificuldade"
+                id="fullWidth"
+                onChange={(e) => setNewDifficulty(e.target.value)}
+              />
+              <TextField
+                fullWidth
+                label="Ingredientes"
+                id="fullWidth"
+                onChange={(e) => setNewIngredients(e.target.value)}
+              />
+              <IconLabelButtons onClick={sendFormToApi} />
             </Box>
           </Modal>
         </div>
@@ -231,22 +252,34 @@ const Potion = () => {
               {detalheInvisivel ? (
                 <p></p>
               ) : (
-                <p>
-                  <span className={styles.atributo}>Nome: </span> {linkText} <br />
-                  <span className={styles.atributo}>Efeito: </span> {effect}
-                  <br />
-                  <span className={styles.atributo}>Efeito colateral: </span> {sideEffect}
-                  <br />
-                  <span className={styles.atributo}>Dificuldade: </span> {difficulty}
-                  <br />
-                  <span className={styles.atributo}>Ingredientes: </span>
-                </p>
+                <div className={styles.atributos}>
+                  <div>
+                    <button onClick={() => addFavorite(linkText)}> 
+                      AAAAAAAAAAAAAAAAAA
+                    </button>
+                  </div>
+                  <p>
+                    <span className={styles.atributo}>Nome: </span> {linkText}{" "}
+                    <br />
+                    <span className={styles.atributo}>Efeito: </span> {effect}
+                    <br />
+                    <span className={styles.atributo}>
+                      Efeito colateral:{" "}
+                    </span>{" "}
+                    {sideEffect}
+                    <br />
+                    <span className={styles.atributo}>Dificuldade: </span>{" "}
+                    {difficulty}
+                    <br />
+                    <span className={styles.atributo}>Ingredientes: </span>
+                  </p>
+                </div>
               )}
 
               {ingredients.length > 0 && !desconhecidoInvisivel ? (
                 <ul style={{ listStyleType: "none", padding: 0 }}>
                   {ingredients.map((name, index) => (
-                    <ul key={index}> {name} </ul>
+                    <li key={index}> {name} </li>
                   ))}
                 </ul>
               ) : !detalheInvisivel ? (
@@ -265,13 +298,14 @@ const Potion = () => {
           {showChat && (
             <div className={styles.chatBox}>
               <div className={styles.studentText}>
-                <p>
-                  Suas poções favoritas são
-                  <ul>tananan</ul>
-                  <ul>tananin</ul>
-                  <ul>trolous</ul>
-                  <ul>Boeck OO</ul>
-                </p>
+                <p>FOCOES FAVORITAS</p>
+                <ul>
+                  {favorite.map((fav, index) => (
+                    <ul>
+                      <a href="#"key={index} onClick={handleContent}>{fav}</a>
+                    </ul>
+                  ))}
+                </ul>
               </div>
             </div>
           )}
