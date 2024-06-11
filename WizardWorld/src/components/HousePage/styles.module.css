@@ -57,9 +57,11 @@ box-shadow:
   width: 100%;
   z-index: 1;
 }
+
 .exitImageIcon img{
   width: 60px;
 }
+
 .exitImage:hover{
   transform: scale(1.3);
 }
