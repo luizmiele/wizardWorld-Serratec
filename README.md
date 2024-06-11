@@ -8,8 +8,9 @@ Poções, Feitiços, Loja e Créditos.
 
 ## Tecnologias:
 
-React
-VsCode
+React;
+
+VsCode;
 
 # Colaboradores
 ### Conecte-se conosco
