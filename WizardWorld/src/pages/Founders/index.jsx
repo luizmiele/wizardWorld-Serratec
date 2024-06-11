@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import styles from "./styles.module.css";
-import videoSrc from "../../assets/videos/jornal.mp4";
+import videoSrc from "../../assets/videos/Jornal Atualizado.mp4";
 import CreditsMusic from '../../components/BackgroundMusic/CreditsMusic.jsx';
 import porta from "../../assets/images/icones/saida-icone.png";
 
