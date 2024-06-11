@@ -31,6 +31,7 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
           <div className={styles.livro} style={{ backgroundImage: `url(${centerImage})` }} alt="Livro">
             <div className={styles.menuItems}>
               <div className={styles.paginaEsquerda}>
+                <div className={styles.textoCentralEsquerda}>Você parece indeciso.</div>
                 <div className={styles.pocaoContainer}>
                   <div className={styles.pocaoIcone}>
                     <div className={styles.pocaoIconeImagem}>
@@ -49,6 +50,7 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
                   </div>
               </div>
               <div className={styles.paginaDireita}>
+                <div className={styles.textoCentralDireita}>Escolha uma opção.</div>
                 <div className={styles.quadribolContainer}>
                   <div className={styles.quadribolIcone}>
                     <div className={styles.quadribolIconeImagem}>
