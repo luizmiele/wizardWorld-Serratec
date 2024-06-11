@@ -55,7 +55,7 @@ const HousePage = ({ videoSrc, studentImage, studentText, crest }) => {
                       <un><Link to="/quidditch"><p><img src="./src/assets/images/icones/vassoura.png" alt="quadribol" /></p></Link></un>
                     </div>
                   </div>
-                  <h1 className={styles.linkTexto}>Quadribol</h1>
+                  <h1 className={styles.linkTexto}>Loja</h1>
                 </div>
                 <div className={styles.creditosContainer}>
                   <div className={styles.creditosIcone}>

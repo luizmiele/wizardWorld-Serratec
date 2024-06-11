@@ -170,6 +170,7 @@ const Potion = () => {
       </div>
 
       <div className={styles.criarPocao}>
+          <h2>Crie sua poção!</h2>
         <div className={styles.modal}>
           <Button onClick={handleOpen}>
             <img src={pena} alt="criar poção" />
