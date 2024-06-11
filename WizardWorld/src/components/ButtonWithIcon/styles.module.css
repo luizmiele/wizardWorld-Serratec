@@ -1,0 +1,18 @@
+ .customButton {
+    background-color: #6200ea; /* Cor de fundo */
+    color: white;             /* Cor do texto */
+    padding: 10px 20px;       /* Espaçamento interno */
+    border-radius: 8px;       /* Bordas arredondadas */
+    font-size: 16px;          /* Tamanho da fonte */
+    display: flex;            /* Flexbox para alinhar ícone e texto */
+    align-items: center;      /* Centralizar verticalmente */
+  }
+  
+  .customButton:hover {
+    background-color: #3700b3; /* Cor de fundo ao passar o mouse */
+  }
+  
+  .customIcon {
+    margin-right: 8px; /* Espaçamento entre ícone e texto */
+    font-size: 24px;   /* Tamanho do ícone */
+  }
