@@ -94,7 +94,8 @@
   width: 100%;
   height: auto;
   font-size: 40px;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: black;
   width: 350px;
   font-family: "Magik";
   border-radius: 5px;
@@ -103,6 +104,7 @@
 .formulario::placeholder{
   font-family: Arial, Helvetica, sans-serif;
   font-size: 25px;
+  color: #F3f3f3;
 }
 
 .potions a {
@@ -190,7 +192,7 @@
 }
 
 .scrollContainer {
-  max-height: 380px; /* Ajuste o tamanho conforme necessário */
+  max-height: 320px; /* Ajuste o tamanho conforme necessário */
   overflow-y: auto;
   border: 1px solid #cccccc68; /* Opcional: adicionar borda */
   padding: 10px; /* Opcional: adicionar padding */
@@ -228,6 +230,7 @@
 ::-webkit-scrollbar-button:hover {
   background: #555; /* Cor dos botões ao passar o mouse */
 }
+
 
 
 

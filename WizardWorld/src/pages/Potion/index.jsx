@@ -4,13 +4,17 @@ import styles from "./styles.module.css";
 import videoSrc from "../../assets/videos/SalaPotions.mp4";
 import centerImage from "../../assets/images/paginaVelha.png";
 import crest from "../../assets/images/casas/hogwarts.png";
-import pena from "../../assets/images/icones/pena.png"
+import pena from "../../assets/images/icones/pena.png";
 import studentImage from "../../assets/images/enzo-diretor-moldura.png";
 import { getElixirList } from "../../services/Api.js";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import CustomThemeProvider from "../../components/CustomThemeProvider/index.jsx";
+import IconLabelButtons from "../../components/IconLabelButtons/index.jsx";
+import axios from "axios";
+import TextField from "@mui/material/TextField";
 
 const Potion = () => {
   const [showChat, setShowChat] = useState(true);
@@ -21,29 +25,42 @@ const Potion = () => {
   const [invisivel, setInvisivel] = useState(true);
   const [detalheInvisivel, setDetalheInvisivel] = useState(true);
   const [linkText, setLinkText] = useState("");
+  const [potionName, setPotionName] = useState('');
   const [effect, setEffect] = useState("");
   const [sideEffect, setSideEffect] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [newIngredients, setNewIngredients] = useState([]);
   const [desconhecidoInvisivel, setDesconhecidoInvisivel] = useState(true);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const labels = [
+    "Nome da Poção",
+    "Efeito",
+    "Efeito colateral",
+    "Dificuldade",
+    "Ingredientes",
+  ];
 
   const estilo = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    bgcolor: "rgba(241, 218, 143, 0.8)",
+    border: "2px solid #000",
     boxShadow: 24,
     p: 4,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 2,
   };
 
-  function mostraDetalhes() {
-    const potion = findByName(linkText);
+  function mostraDetalhes(nome) {
+    const potion = findByName(nome);
     setFoundPotion(potion);
     setDifficulty(potion.difficulty);
     setEffect(potion.effect);
@@ -59,7 +76,7 @@ const Potion = () => {
   const handleContent = (e) => {
     e.preventDefault();
     setLinkText(e.target.textContent);
-    mostraDetalhes();
+    mostraDetalhes(e.target.textContent);
     setDetalheInvisivel(false);
     setDesconhecidoInvisivel(false);
   };
@@ -102,6 +119,45 @@ const Potion = () => {
     setShowChat(!showChat);
   };
 
+  // Função para enviar dados para a API
+  const sendFormToApi = async () => {
+    console.log("FRED")
+    try {
+      const formData = {
+        nomePotion: potionName,
+        efeito: effect,
+        efeitoColateral: sideEffect,
+        dificuldade: difficulty,
+        ingredientes: newIngredients,
+      };
+      console.log("FORMA DATA: " + formData)
+      const url = "https://6632937ac51e14d69564d9af.mockapi.io/test/v1";
+      const endpoint = "/form";
+      await axios.post(url + endpoint, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log("Formulário enviado com sucesso:", formData);
+      // Resetar o formulário aqui, se necessário
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // Função para limpar o formulário
+  const clearForm = () => {
+    // Limpa os estados que mantêm os dados do formulário
+    setLinkText("");
+    setEffect("");
+    setSideEffect("");
+    setDifficulty("");
+    setIngredients([]);
+
+    // Outras ações de limpeza, se necessário
+    console.log("Formulário limpo.");
+  };
+
   return (
     <div className={styles.principal}>
       <BackgroundVideo src={videoSrc} />
@@ -111,29 +167,33 @@ const Potion = () => {
         </a>
       </div>
 
-      {/* //bootstrap */}
       <div className={styles.criarPocao}>
         <div className={styles.modal}>
-        <Button onClick={handleOpen}> <img src={pena} alt="criar poção" /></Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={estilo}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
+          <Button onClick={handleOpen}>
+            <img src={pena} alt="criar poção" />
+          </Button>
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={estilo}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Criar Poção
+              </Typography>
+              <CustomThemeProvider>
+                <TextField fullWidth label="Nome da Função" id="fullWidth" onChange={(e) => setPotionName(e.target.value)} />
+                <TextField fullWidth label="Efeito" id="fullWidth" onChange={(e) => setEffect(e.target.value)}/>
+                <TextField fullWidth label="Efeito Colateral" id="fullWidth" onChange={(e) => setSideEffect(e.target.value)}/>
+                <TextField fullWidth label="Dificuldade" id="fullWidth" onChange={(e) => setDifficulty(e.target.value)}/>
+                <TextField fullWidth label="Ingredientes" id="fullWidth" onChange={(e) => setNewIngredients(e.target.value)}/>
+                <IconLabelButtons onClick={sendFormToApi}/>
+              </CustomThemeProvider>
+            </Box>
+          </Modal>
+        </div>
       </div>
-    </div>
-
-      {/* fim */}
 
       <div className={styles.contentContainer}>
         <div className={styles.paginaContainer}>
@@ -144,7 +204,7 @@ const Potion = () => {
           >
             <div className={styles.paginaEsquerda}>
               <div className={styles.pesquisa}>
-                <h2>Qual Pocão você deseja?</h2>
+                <h2>Qual Poção você deseja?</h2>
                 <form onSubmit={(e) => e.preventDefault()}>
                   <input
                     className={styles.formulario}
