@@ -155,6 +155,7 @@
 }
 
 .chatBox {
+  margin-top: 15px;
   background-image: url("./src/assets/images/pergaminho.png");
   background-size: cover;
   background-repeat: no-repeat;
